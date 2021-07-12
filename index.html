@@ -14,7 +14,7 @@
 
   <body>
     <div class="reveal">
-      <div style="padding: 16px; position: fixed; bottom: 0">
+      <div style="position: fixed; bottom: 0; left: 8px">
         <img height="24" src="images/Beuth-Logo_single.png" style="margin: 0" />
         <span style="font-size: 16px; opacity: 0.3; vertical-align: middle"
           >Immersion in Virtual Environments. Comparing panic, distress, motion
@@ -84,11 +84,41 @@
           <section>
             <h3>Study Design</h3>
           </section>
-          <section>
+          <section data-auto-animate>
             <h3>Materials</h3>
+            <h4>VR</h4>
+            <div class="left" style="float: left; width: 48%">
+              <div class="img-block" style="width: 100%">
+                <img src="images/Valve-Index-1.jpg" />
+                <small>
+                  Valve Index (<a
+                    href="https://lumoid.com/wp-content/uploads/2020/06/Valve-Index-1.jpg"
+                    target="_blank"
+                    >https://lumoid.com/wp-content/uploads/2020/06/Valve-Index-1.jpg</a
+                  >)
+                </small>
+              </div>
+            </div>
+            <div
+              class="right"
+              style="float: left; width: 48%; text-align: left"
+            >
+              <p>Valve Index HMD</p>
+              <small>dual LCD screens | 1440px × 1600px</small>
+              <p>Valve controllers</p>
+              <small>with lighthouse tracking</small>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <h3>Materials</h3>
+            <h4>Non-VR</h4>
+            <p>standard computer monitor</p>
+            <small>1920px × 1080px | 47 in</small>
           </section>
           <section>
             <h3>Gameplay</h3>
+            <h4>SUPERHOT & Fallout 4</h4>
+            <img src="images/screenshot-fallout-superhot.png" />
           </section>
           <section>
             <h3>Experiment Design</h3>
@@ -112,4 +142,16 @@
       });
     </script>
   </body>
+  <style>
+    .img-block img {
+      display: block;
+      margin: 0;
+    }
+
+    .img-block small {
+      margin-top: 4px;
+      font-size: 8px;
+      line-height: 1;
+    }
+  </style>
 </html>
