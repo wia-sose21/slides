@@ -1,157 +1,161 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <title></title>
-    <link rel="stylesheet" href="dist/reset.css" />
-    <link rel="stylesheet" href="dist/reveal.css" />
-    <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
-  </head>
 
-  <body>
-    <div class="reveal">
-      <div style="position: fixed; bottom: 0; left: 8px">
-        <img height="24" src="images/Beuth-Logo_single.png" style="margin: 0" />
-        <span style="font-size: 16px; opacity: 0.3; vertical-align: middle"
-          >Immersion in Virtual Environments. Comparing panic, distress, motion
-          sickness, and user experience in VR and non-VR.</span
-        >
-      </div>
-      <div class="slides">
-        <section>
-          <img height="32" src="images/Beuth-Logo_horizontal.png" />
-          <h2 class="r-fit-text">Immersion in virtual environments</h2>
-          <h2 class="r-fit-text">
-            Comparing panic, distress, motion sickness, and user experience
-            <br />
-            in VR and non-VR
-          </h2>
-          <small>Marc Störmer, Dobromir Palushev, Jakob Fleisch</small>
-        </section>
-        <section>
-          <h3>Table of Contents</h3>
-          <ol style="text-align: left">
-            <li>Introduction</li>
-            <li>Study Design</li>
-            <li>Study Results</li>
-            <li>Discussion</li>
-            <li>Summary</li>
-          </ol>
-        </section>
-        <section>
-          <section>
-            <h3>Introduction</h3>
-          </section>
-          <section>
-            <h3>Motion Sickness</h3>
-            <p>
-              discomfort, nausea, dizziness, headache,<br />
-              visual impairment
-            </p>
-            <small>
-              caused by discrepancies between the perceived movement and the
-              displayed image
-            </small>
-          </section>
-          <section>
-            <h3>Locomotion Techniques in VR</h3>
-            <div class="left" style="float: left; width: 48%">
-              <h4>Controller-based Navigation</h4>
-              <ul>
-                <li>unnatural</li>
-                <li>sensory conflicts</li>
-              </ul>
-            </div>
-            <div class="right" style="float: right; width: 48%">
-              <h4>
-                Natural <br />
-                Walking
-              </h4>
-              <ul>
-                <li>physical movements are mapped one-to-one</li>
-                <li>enables natural-perceived interactions</li>
-                <li>better motion feedback</li>
-                <li>limits the accessible area in VR</li>
-              </ul>
-            </div>
-          </section>
-        </section>
-        <section>
-          <section>
-            <h3>Study Design</h3>
-          </section>
-          <section data-auto-animate>
-            <h3>Materials</h3>
-            <h4>VR</h4>
-            <div class="left" style="float: left; width: 48%">
-              <div class="img-block" style="width: 100%">
-                <img src="images/Valve-Index-1.jpg" />
-                <small>
-                  Valve Index (<a
-                    href="https://lumoid.com/wp-content/uploads/2020/06/Valve-Index-1.jpg"
-                    target="_blank"
-                    >https://lumoid.com/wp-content/uploads/2020/06/Valve-Index-1.jpg</a
-                  >)
-                </small>
-              </div>
-            </div>
-            <div
-              class="right"
-              style="float: left; width: 48%; text-align: left"
-            >
-              <p>Valve Index HMD</p>
-              <small>dual LCD screens | 1440px × 1600px</small>
-              <p>Valve controllers</p>
-              <small>with lighthouse tracking</small>
-            </div>
-          </section>
-          <section data-auto-animate>
-            <h3>Materials</h3>
-            <h4>Non-VR</h4>
-            <p>standard computer monitor</p>
-            <small>1920px × 1080px | 47 in</small>
-          </section>
-          <section>
-            <h3>Gameplay</h3>
-            <h4>SUPERHOT & Fallout 4</h4>
-            <img src="images/screenshot-fallout-superhot.png" />
-          </section>
-          <section>
-            <h3>Experiment Design</h3>
-          </section>
-        </section>
-      </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title></title>
+  <link rel="stylesheet" href="dist/reset.css" />
+  <link rel="stylesheet" href="dist/reveal.css" />
+  <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
+</head>
+
+<body>
+  <div class="reveal">
+    <div style="position: fixed; bottom: 0; left: 8px">
+      <img height="24" src="images/Beuth-Logo_single.png" style="margin: 0" />
+      <span style="font-size: 16px; opacity: 0.3; vertical-align: middle">Immersion in Virtual Environments. Comparing panic, distress, motion
+        sickness, and user experience in VR and non-VR.</span>
     </div>
+    <div class="slides">
+      <section>
+        <img height="64" src="images/Beuth-Logo_horizontal.png" />
+        <hr>
+        <h1 style="color: rgb(57,183,188)">BCSC2021</h1>
+        <hr>
+        <h2 class="r-fit-text">Immersion in virtual environments</h2>
+        <h2 class="r-fit-text" style="color: rgb(57,183,188)">
+          Comparing panic, distress, motion sickness, and user experience
+          <br />
+          in VR and non-VR
+        </h2>
+        <p style="color: rgb(239,24,30)" class="r-fit-text">Marc Aurel Störmer, Jakob Robert Fleisch, Dobromir Ivanov Palushev</p>
+      </section>
+      <section>
+        <section data-auto-animate>
+        <h3>Introduction</h3>
+        <hr>
+        <p>Focus: How does the user experience and sense of panic and distress differ in VR vs non-VR?</p>
+          <img src="images/vr.png" style="width: 70%;" />
 
-    <script src="dist/reveal.js"></script>
-    <script src="plugin/notes/notes.js"></script>
-    <script src="plugin/markdown/markdown.js"></script>
-    <script src="plugin/highlight/highlight.js"></script>
-    <script>
-      // More info about initialization & config:
-      // - https://revealjs.com/initialization/
-      // - https://revealjs.com/config/
-      Reveal.initialize({
-        hash: true,
-        slideNumber: true,
-        controls: false,
-      });
-    </script>
-  </body>
-  <style>
-    .img-block img {
-      display: block;
-      margin: 0;
-    }
+          <small style="font-size: 1rem">
+            <a href="https://theshillongtimes.com/wp-content/uploads/2020/03/vr.jpg" target="_blank">https://theshillongtimes.com/wp-content/uploads/2020/03/vr.jpg</a>
+          </small>
+        </section>
+        <section data-auto-animate>
+        <h3>Introduction</h3>
+        <hr>
+        <div style="float: left; width: 40%; font-size:2rem;">
+          <ul>
+            <h5>VR</h5>
+            <li>Stereoscopic (3D) vision with head-mounted displays</li>
+            <li>Motion tracking</li>
+            <ul>
+              <li>Limited movement (physical barriers)</li>
+            </ul>
+            <li>Direct (haptic) feedback</li>
+          </ul>
+					</div>
+					<div style="float: right; width: 40%; font-size:2rem;">
+            <ul>
+              <h5>non-VR</h5>
+              <li>Single viewpoint on 2D-Monitor</li>
+              <li>Controller- or keyboard-based navigation</li>
+              <ul>
+                <li>Unlimited freedom of locomotion</li>
+              </ul>
+              <li>Detached feedback through visual clues</li>
+            </ul>
+					</div>
+        </section>
+        <section data-auto-animate>
+        <h3>Introduction</h3>
+        <hr>
+        <h4>Motion Sickness Symptoms</h4>
+        <small>
+          caused by discrepancies between the perceived movement and the
+          displayed image
+        </small>
+        <ul style="font-size:2rem;">
+          <li>discomfort</li>
+          <li>nausea</li>
+          <li>dizziness</li>
+          <li>headache</li>
+          <li>visual impairment</li>
+        </ul>
+        </section>
+      </section>
+      </section>
+      <section>
+        <section>
+          <h3>Study Design</h3>
+        </section>
+        <section data-auto-animate>
+          <h3>Study Design</h3>
+          <hr>
+          <h4>Gameplay</h4>
+          <img src="images/screenshot-fallout-superhot.png" style="width: 70%;" />
+          <small style="font-size: 1rem">
+            Example of the environment of the video games SUPERHOT (left) and Fallout 4 (right)
+          </small>
+        </section>
+        <section data-auto-animate>
+          <h3>Study Design</h3>
+          <hr>
+          <h4>Experiment Design</h4>
+          <div style="float: left; width: 40%; font-size:2rem;">
+            <ul>
+              <h5>SUPERHOT</h5>
+              <li>Player was limited by the physically available space (2m x 2m)</li>
+              <li>Enemies tried to shoot or hit the player</li>
+              <li>Enemies moved at the same speed as the player</li>
+              <li>Player could shoot and hit the enemies</li>
+              <li>Player could throw objects at the enemies</li>
+            </ul>
+  					</div>
+  					<div style="float: right; width: 40%; font-size:2rem;">
+              <ul>
+                <h5>Fallout 4</h5>
+                <li>Player was tasked to defend a building from mutants</li>
+                <li>Mutants approached the player quickly</li>
+                <li>Player could shoot at the mutants</li>
+                <li>Player could move freely afterwards </li>
+              </ul>
+  					</div>
+        </section>
+        <section data-auto-animate>
+          <h3>Study Design</h3>
+          <hr>
+          <h4>Questionnaire</h4>
+          <p style="font-size:2rem">based on the Likert Scale</p>
+          <ul style="font-size:2rem;">
+            <li>Basic demographic questions</li>
+            <li>Experience in VR and video games</li>
+            <li>Motion sickness symptoms</li>
+            <li>Experiences regarding threat and distress</li>
+            <li>Situations in which they felt anxious or panicky</li>
+            <li>Movement speed</li>
+          </ul>
+          <p style="font-size:2rem">Participants were able to document their own observation</p>
+        </section>
+      </section>
+    </div>
+  </div>
 
-    .img-block small {
-      margin-top: 4px;
-      font-size: 8px;
-      line-height: 1;
-    }
-  </style>
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      // controls: false,
+    });
+  </script>
+</body>
+
 </html>
