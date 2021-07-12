@@ -1,4 +1,12 @@
-let mode = 'vr'
+let modeSa = 'vr'
+let modeSymp = 'disc'
+let modeSymptom = 'discomfort'
+let currSlide = null
+
+Reveal.on( 'slidetransitionend', event => {
+	currSlide = event.currentSlide.getAttribute('data-state')
+})
+
 let saElement = document.getElementById('sa').getContext('2d')
 let saChart = new Chart(saElement, {
   type: 'bar',
@@ -91,7 +99,10 @@ let saChart = new Chart(saElement, {
     plugins: {
       title: {
         display: true,
-        text: 'Count of symptom occurrences (VR)'
+        text: 'VR',
+        font: {
+          size: 16
+        }
       }
     },
     scales: {
@@ -104,64 +115,162 @@ let saChart = new Chart(saElement, {
   }
 })
 
-document.addEventListener('keypress', e => {
-  if (e.keyCode == 99) {
-    if (mode === 'vr') {
-      saChart.data.datasets[0].data[0] = 0
-      saChart.data.datasets[0].data[1] = 0
-      saChart.data.datasets[0].data[2] = 0
-      saChart.data.datasets[0].data[3] = 0
-      saChart.data.datasets[0].data[4] = 0
-
-      saChart.data.datasets[1].data[0] = 0
-      saChart.data.datasets[1].data[1] = 0
-      saChart.data.datasets[1].data[2] = 0
-      saChart.data.datasets[1].data[3] = 0
-      saChart.data.datasets[1].data[4] = 0
-
-      saChart.data.datasets[2].data[0] = 1
-      saChart.data.datasets[2].data[1] = 0
-      saChart.data.datasets[2].data[2] = 0
-      saChart.data.datasets[2].data[3] = 0
-      saChart.data.datasets[2].data[4] = 0
-
-      saChart.data.datasets[3].data[0] = 2
-      saChart.data.datasets[3].data[1] = 0
-      saChart.data.datasets[3].data[2] = 1
-      saChart.data.datasets[3].data[3] = 1
-      saChart.data.datasets[3].data[4] = 0
-
-      saChart.options.plugins.title.text = "Count of symptom occurrences (Non-VR)"
-      mode = 'nonVr'
-    } else {
-      saChart.data.datasets[0].data[0] = 3
-      saChart.data.datasets[0].data[1] = 3
-      saChart.data.datasets[0].data[2] = 3
-      saChart.data.datasets[0].data[3] = 3
-      saChart.data.datasets[0].data[4] = 3
-
-      saChart.data.datasets[1].data[0] = 1
-      saChart.data.datasets[1].data[1] = 1
-      saChart.data.datasets[1].data[2] = 1
-      saChart.data.datasets[1].data[3] = 1
-      saChart.data.datasets[1].data[4] = 1
-
-      saChart.data.datasets[2].data[0] = 6
-      saChart.data.datasets[2].data[1] = 5
-      saChart.data.datasets[2].data[2] = 5
-      saChart.data.datasets[2].data[3] = 4
-      saChart.data.datasets[2].data[4] = 5
-
-      saChart.data.datasets[3].data[0] = 4
-      saChart.data.datasets[3].data[1] = 4
-      saChart.data.datasets[3].data[2] = 3
-      saChart.data.datasets[3].data[3] = 3
-      saChart.data.datasets[3].data[4] = 4
-
-      saChart.options.plugins.title.text = "Count of symptom occurrences (VR)"
-      mode = 'vr'
-      console.log('bomba')
+let sympElement = document.getElementById('symp').getContext('2d')
+let sympChart = new Chart(sympElement, {
+  type: 'bar',
+  data: {
+    labels: ['0', '1', '2', '3', '4', '5', '6'],
+    datasets: [
+      {
+        label: 'VR',
+        data: [3, 3, 1, 1, 1, 1, 0],
+        grouped: true,
+        backgroundColor: [
+          '#4472C4',
+          '#4472C4',
+          '#4472C4',
+          '#4472C4',
+          '#4472C4',
+          '#4472C4',
+          '#4472C4'
+        ],
+      },
+      {
+        label: 'Non-VR',
+        data: [8, 2, 0, 0, 0, 0, 0],
+        grouped: true,
+        backgroundColor:  '#ED7D31'
+      }
+    ]
+  },
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'General discomfort',
+        font: {
+          size: 20
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 9,
+        min: 0
+      }
     }
-    saChart.update()
   }
 })
+
+function toggleSaChart () {
+  if (modeSa === 'vr') {
+    saChart.data.datasets[0].data[0] = 0
+    saChart.data.datasets[0].data[1] = 0
+    saChart.data.datasets[0].data[2] = 0
+    saChart.data.datasets[0].data[3] = 0
+    saChart.data.datasets[0].data[4] = 0
+
+    saChart.data.datasets[1].data[0] = 0
+    saChart.data.datasets[1].data[1] = 0
+    saChart.data.datasets[1].data[2] = 0
+    saChart.data.datasets[1].data[3] = 0
+    saChart.data.datasets[1].data[4] = 0
+
+    saChart.data.datasets[2].data[0] = 1
+    saChart.data.datasets[2].data[1] = 0
+    saChart.data.datasets[2].data[2] = 0
+    saChart.data.datasets[2].data[3] = 0
+    saChart.data.datasets[2].data[4] = 0
+
+    saChart.data.datasets[3].data[0] = 2
+    saChart.data.datasets[3].data[1] = 0
+    saChart.data.datasets[3].data[2] = 1
+    saChart.data.datasets[3].data[3] = 1
+    saChart.data.datasets[3].data[4] = 0
+
+    saChart.options.plugins.title.text = "Non-VR"
+    modeSa = 'nonVr'
+  } else {
+    saChart.data.datasets[0].data[0] = 3
+    saChart.data.datasets[0].data[1] = 3
+    saChart.data.datasets[0].data[2] = 3
+    saChart.data.datasets[0].data[3] = 3
+    saChart.data.datasets[0].data[4] = 3
+
+    saChart.data.datasets[1].data[0] = 1
+    saChart.data.datasets[1].data[1] = 1
+    saChart.data.datasets[1].data[2] = 1
+    saChart.data.datasets[1].data[3] = 1
+    saChart.data.datasets[1].data[4] = 1
+
+    saChart.data.datasets[2].data[0] = 6
+    saChart.data.datasets[2].data[1] = 5
+    saChart.data.datasets[2].data[2] = 5
+    saChart.data.datasets[2].data[3] = 4
+    saChart.data.datasets[2].data[4] = 5
+
+    saChart.data.datasets[3].data[0] = 4
+    saChart.data.datasets[3].data[1] = 4
+    saChart.data.datasets[3].data[2] = 3
+    saChart.data.datasets[3].data[3] = 3
+    saChart.data.datasets[3].data[4] = 4
+
+    saChart.options.plugins.title.text = "VR"
+    modeSa = 'vr'
+  }
+  saChart.update()
+}
+
+function toggleSympChart () {
+  if (modeSymp === 'disc') {
+    sympChart.data.datasets[0].data[0] = 4
+    sympChart.data.datasets[0].data[1] = 2
+    sympChart.data.datasets[0].data[2] = 0
+    sympChart.data.datasets[0].data[3] = 2
+    sympChart.data.datasets[0].data[4] = 0
+    sympChart.data.datasets[0].data[5] = 1
+    sympChart.data.datasets[0].data[6] = 1
+
+    sympChart.data.datasets[1].data[0] = 9
+    sympChart.data.datasets[1].data[1] = 1
+    sympChart.data.datasets[1].data[2] = 0
+    sympChart.data.datasets[1].data[3] = 0
+    sympChart.data.datasets[1].data[4] = 0
+    sympChart.data.datasets[1].data[5] = 0
+    sympChart.data.datasets[1].data[6] = 0
+
+    sympChart.options.plugins.title.text = 'Dizziness'
+    modeSymp = 'diz'
+  } else {
+    sympChart.data.datasets[0].data[0] = 3
+    sympChart.data.datasets[0].data[1] = 3
+    sympChart.data.datasets[0].data[2] = 1
+    sympChart.data.datasets[0].data[3] = 1
+    sympChart.data.datasets[0].data[4] = 1
+    sympChart.data.datasets[0].data[5] = 1
+    sympChart.data.datasets[0].data[6] = 0
+
+    sympChart.data.datasets[1].data[0] = 8
+    sympChart.data.datasets[1].data[1] = 2
+    sympChart.data.datasets[1].data[2] = 0
+    sympChart.data.datasets[1].data[3] = 0
+    sympChart.data.datasets[1].data[4] = 0
+    sympChart.data.datasets[1].data[5] = 0
+    sympChart.data.datasets[1].data[6] = 0
+
+    sympChart.options.plugins.title.text = 'General discomfort'
+    modeSymp = 'disc'
+  }
+  sympChart.update()
+}
+
+document.addEventListener('keypress', e => {
+  if (e.keyCode === 99 && currSlide === 'sa') {
+    toggleSaChart()
+  }
+  if (e.keyCode === 99 && currSlide === 'symp') {
+    toggleSympChart()
+  }
+})
+
