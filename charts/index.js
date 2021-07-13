@@ -1,119 +1,11 @@
-let modeSa = 'vr'
+let modeSa = 'nonVr'
 let modeSymp = 'disc'
-let modePadi = 'vr'
-let modeExc = 'vr'
+let modePadi = 'nonVr'
+let modeExc = 'nonVr'
 let currSlide = null
 
 Reveal.on('slidechanged', event => {
   currSlide = event.currentSlide.getAttribute('data-state')
-})
-
-let saElement = document.getElementById('sa').getContext('2d')
-let saChart = new Chart(saElement, {
-  type: 'bar',
-  data: {
-    labels: ['discomfort', 'nausea', 'dizziness', 'headache', 'visual impairment'],
-    datasets: [
-      {
-        label: 'picking up objects',
-        data: [3, 3, 3, 3, 3],
-        grouped: true,
-        backgroundColor: [
-          '#4472C4',
-          '#4472C4',
-          '#4472C4',
-          '#4472C4'
-        ],
-        // borderColor: [
-        //     'rgba(255, 99, 132, 1)',
-        //     'rgba(54, 162, 235, 1)',
-        //     'rgba(255, 206, 86, 1)',
-        //     'rgba(75, 192, 192, 1)',
-        //     'rgba(153, 102, 255, 1)',
-        //     'rgba(255, 159, 64, 1)'
-        // ],
-        // borderWidth: 1
-      },
-      {
-        label: 'throwing objects',
-        data: [1, 1, 1, 1, 1],
-        grouped: true,
-        backgroundColor: [
-          '#ED7D31',
-          '#ED7D31',
-          '#ED7D31',
-          '#ED7D31'
-        ],
-        // borderColor: [
-        //     'rgba(255, 99, 132, 1)',
-        //     'rgba(54, 162, 235, 1)',
-        //     'rgba(255, 206, 86, 1)',
-        //     'rgba(75, 192, 192, 1)',
-        //     'rgba(153, 102, 255, 1)',
-        //     'rgba(255, 159, 64, 1)'
-        // ],
-        // borderWidth: 1
-      },
-      {
-        label: 'walking',
-        data: [6, 5, 5, 4, 5],
-        grouped: true,
-        backgroundColor: [
-          '#92D050',
-          '#92D050',
-          '#92D050',
-          '#92D050'
-        ],
-        // borderColor: [
-        //     'rgba(255, 99, 132, 1)',
-        //     'rgba(54, 162, 235, 1)',
-        //     'rgba(255, 206, 86, 1)',
-        //     'rgba(75, 192, 192, 1)',
-        //     'rgba(153, 102, 255, 1)',
-        //     'rgba(255, 159, 64, 1)'
-        // ],
-        // borderWidth: 1
-      },
-      {
-        label: 'rotating (body/head)',
-        data: [4, 4, 3, 3, 4],
-        grouped: true,
-        backgroundColor: [
-          '#FFC000',
-          '#FFC000',
-          '#FFC000',
-          '#FFC000'
-        ],
-        // borderColor: [
-        //     'rgba(255, 99, 132, 1)',
-        //     'rgba(54, 162, 235, 1)',
-        //     'rgba(255, 206, 86, 1)',
-        //     'rgba(75, 192, 192, 1)',
-        //     'rgba(153, 102, 255, 1)',
-        //     'rgba(255, 159, 64, 1)'
-        // ],
-        // borderWidth: 1
-      }
-    ]
-  },
-  options: {
-    plugins: {
-      title: {
-        display: true,
-        text: 'VR',
-        font: {
-          size: 16
-        }
-      }
-    },
-    scales: {
-      y: {
-        beginAtZero: true,
-        max: 6,
-        min: 0
-      }
-    }
-  }
 })
 
 let sympElement = document.getElementById('symp').getContext('2d')
@@ -164,6 +56,96 @@ let sympChart = new Chart(sympElement, {
   }
 })
 
+let saElement = document.getElementById('sa').getContext('2d')
+let saChart = new Chart(saElement, {
+  type: 'bar',
+  data: {
+    labels: ['discomfort', 'nausea', 'dizziness', 'headache', 'visual impairment'],
+    datasets: [
+      {
+        label: 'picking up objects',
+        data: [0, 0, 0, 0, 0],
+        grouped: true,
+        backgroundColor: [
+          '#4472C4',
+          '#4472C4',
+          '#4472C4',
+          '#4472C4'
+        ],
+      },
+      {
+        label: 'throwing objects',
+        data: [0, 0, 0, 0, 0],
+        grouped: true,
+        backgroundColor: [
+          '#ED7D31',
+          '#ED7D31',
+          '#ED7D31',
+          '#ED7D31'
+        ],
+        // borderColor: [
+        //     'rgba(255, 99, 132, 1)',
+        //     'rgba(54, 162, 235, 1)',
+        //     'rgba(255, 206, 86, 1)',
+        //     'rgba(75, 192, 192, 1)',
+        //     'rgba(153, 102, 255, 1)',
+        //     'rgba(255, 159, 64, 1)'
+        // ],
+        // borderWidth: 1
+      },
+      {
+        label: 'walking',
+        data: [1, 0, 0, 0, 0],
+        grouped: true,
+        backgroundColor: [
+          '#92D050',
+          '#92D050',
+          '#92D050',
+          '#92D050'
+        ],
+        // borderColor: [
+        //     'rgba(255, 99, 132, 1)',
+        //     'rgba(54, 162, 235, 1)',
+        //     'rgba(255, 206, 86, 1)',
+        //     'rgba(75, 192, 192, 1)',
+        //     'rgba(153, 102, 255, 1)',
+        //     'rgba(255, 159, 64, 1)'
+        // ],
+        // borderWidth: 1
+      },
+      {
+        label: 'rotating (body/head)',
+        data: [2, 0, 1, 1, 0],
+        grouped: true,
+        backgroundColor: [
+          '#FFC000',
+          '#FFC000',
+          '#FFC000',
+          '#FFC000'
+        ]
+      }
+    ]
+  },
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Non-VR',
+        font: {
+          size: 16
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 6,
+        min: 0
+      }
+    }
+  }
+})
+
 let padiElement = document.getElementById('padi').getContext('2d')
 let padiChart = new Chart(padiElement, {
   type: 'bar',
@@ -172,13 +154,13 @@ let padiChart = new Chart(padiElement, {
     datasets: [
       {
         label: 'Panic',
-        data: [0, 0, 5, 2, 2, 1, 0],
+        data: [4, 3, 2, 1, 0, 0, 0],
         grouped: true,
         backgroundColor: '#9DD053',
       },
       {
         label: 'Distress',
-        data: [0, 0, 0, 8, 1, 1, 0],
+        data: [3, 5, 1, 1, 0, 0, 0],
         grouped: true,
         backgroundColor: '#305597'
       }
@@ -188,7 +170,7 @@ let padiChart = new Chart(padiElement, {
     plugins: {
       title: {
         display: true,
-        text: 'VR',
+        text: 'Non-VR',
         font: {
           size: 20
         }
@@ -212,7 +194,7 @@ let excChart = new Chart(excElement, {
     datasets: [
       {
         label: 'Excitement level',
-        data: [0, 0, 0, 3, 5, 1, 1],
+        data: [1, 1, 3, 4, 1, 0, 0],
         grouped: true,
         backgroundColor: '#E57E27',
         barThickness: 40,
@@ -223,7 +205,7 @@ let excChart = new Chart(excElement, {
     plugins: {
       title: {
         display: true,
-        text: 'VR',
+        text: 'Non-VR',
         font: {
           size: 20
         }
@@ -360,7 +342,7 @@ function togglePadiChart () {
     padiChart.data.datasets[1].data[6] = 0
 
     padiChart.options.plugins.title.text = 'Non-VR'
-    modePadi = 'nonVR'
+    modePadi = 'nonVr'
   } else {
     padiChart.data.datasets[0].data[0] = 0
     padiChart.data.datasets[0].data[1] = 0
@@ -384,7 +366,7 @@ function togglePadiChart () {
   padiChart.update()
 }
 
-function toggleExcChart() {
+function toggleExcChart () {
   if (modeExc === 'vr') {
     excChart.data.datasets[0].data[0] = 1
     excChart.data.datasets[0].data[1] = 1
@@ -395,7 +377,7 @@ function toggleExcChart() {
     excChart.data.datasets[0].data[6] = 0
     excChart.options.plugins.title.text = 'Non-VR'
 
-    modeExc = 'nonVR'
+    modeExc = 'nonVr'
   } else {
     excChart.data.datasets[0].data[0] = 0
     excChart.data.datasets[0].data[1] = 0
@@ -404,7 +386,7 @@ function toggleExcChart() {
     excChart.data.datasets[0].data[4] = 5
     excChart.data.datasets[0].data[5] = 1
     excChart.data.datasets[0].data[6] = 1
-    
+
     excChart.options.plugins.title.text = 'VR'
     modeExc = 'vr'
   }
