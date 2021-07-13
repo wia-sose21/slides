@@ -173,13 +173,15 @@
           <h4>Symptom occurrences per activity</h4>
           <canvas id="sa" width="400" height="200"></canvas>
         </section>
-        <section data-auto-animate>
-          <h4>Panic and distress</h4>
-          <img height="500" src="images/panicChart.svg" style="margin-top: 10px" />
+        <section data-auto-animate data-state="padi">
+          <h4>Panic and distress levels</h4>
+          <!-- <img height="500" src="images/panicChart.svg" style="margin-top: 10px" /> -->
+          <canvas id="padi" width="400" height="200"></canvas>
         </section>
-        <section data-auto-animate>
+        <section data-auto-animate data-state="exc">
           <h4>Excitement from gaming</h4>
-          <img height="500" src="images/excChart.svg" style="margin: 10px" />
+          <!-- <img height="500" src="images/excChart.svg" style="margin: 10px" /> -->
+          <canvas id="exc" width="400" height="200"></canvas>
         </section>
       </section>
       <section>
@@ -244,9 +246,9 @@
 // - https://revealjs.com/initialization/
 // - https://revealjs.com/config/
 Reveal.initialize({
-hash: true,
-slideNumber: true,
-// controls: false,
+  hash: true,
+  slideNumber: true,
+  // controls: false,
 });
 </script>
 <script src="charts/chart.min.js"></script>

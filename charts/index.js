@@ -1,10 +1,11 @@
 let modeSa = 'vr'
 let modeSymp = 'disc'
-let modeSymptom = 'discomfort'
+let modePadi = 'vr'
+let modeExc = 'vr'
 let currSlide = null
 
-Reveal.on( 'slidetransitionend', event => {
-	currSlide = event.currentSlide.getAttribute('data-state')
+Reveal.on('slidechanged', event => {
+  currSlide = event.currentSlide.getAttribute('data-state')
 })
 
 let saElement = document.getElementById('sa').getContext('2d')
@@ -139,7 +140,7 @@ let sympChart = new Chart(sympElement, {
         label: 'Non-VR',
         data: [8, 2, 0, 0, 0, 0, 0],
         grouped: true,
-        backgroundColor:  '#ED7D31'
+        backgroundColor: '#ED7D31'
       }
     ]
   },
@@ -157,6 +158,81 @@ let sympChart = new Chart(sympElement, {
       y: {
         beginAtZero: true,
         max: 9,
+        min: 0
+      }
+    }
+  }
+})
+
+let padiElement = document.getElementById('padi').getContext('2d')
+let padiChart = new Chart(padiElement, {
+  type: 'bar',
+  data: {
+    labels: ['0', '1', '2', '3', '4', '5', '6'],
+    datasets: [
+      {
+        label: 'Panic',
+        data: [0, 0, 5, 2, 2, 1, 0],
+        grouped: true,
+        backgroundColor: '#9DD053',
+      },
+      {
+        label: 'Distress',
+        data: [0, 0, 0, 8, 1, 1, 0],
+        grouped: true,
+        backgroundColor: '#305597'
+      }
+    ]
+  },
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'VR',
+        font: {
+          size: 20
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 9,
+        min: 0
+      }
+    }
+  }
+})
+
+let excElement = document.getElementById('exc').getContext('2d')
+let excChart = new Chart(excElement, {
+  type: 'bar',
+  data: {
+    labels: ['0', '1', '2', '3', '4', '5', '6'],
+    datasets: [
+      {
+        label: 'Excitement level',
+        data: [0, 0, 0, 3, 5, 1, 1],
+        grouped: true,
+        backgroundColor: '#E57E27',
+        barThickness: 40,
+      },
+    ]
+  },
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'VR',
+        font: {
+          size: 20
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        max: 6,
         min: 0
       }
     }
@@ -265,12 +341,88 @@ function toggleSympChart () {
   sympChart.update()
 }
 
+function togglePadiChart () {
+  if (modePadi === 'vr') {
+    padiChart.data.datasets[0].data[0] = 4
+    padiChart.data.datasets[0].data[1] = 3
+    padiChart.data.datasets[0].data[2] = 2
+    padiChart.data.datasets[0].data[3] = 1
+    padiChart.data.datasets[0].data[4] = 0
+    padiChart.data.datasets[0].data[5] = 0
+    padiChart.data.datasets[0].data[6] = 0
+
+    padiChart.data.datasets[1].data[0] = 3
+    padiChart.data.datasets[1].data[1] = 5
+    padiChart.data.datasets[1].data[2] = 1
+    padiChart.data.datasets[1].data[3] = 1
+    padiChart.data.datasets[1].data[4] = 0
+    padiChart.data.datasets[1].data[5] = 0
+    padiChart.data.datasets[1].data[6] = 0
+
+    padiChart.options.plugins.title.text = 'Non-VR'
+    modePadi = 'nonVR'
+  } else {
+    padiChart.data.datasets[0].data[0] = 0
+    padiChart.data.datasets[0].data[1] = 0
+    padiChart.data.datasets[0].data[2] = 5
+    padiChart.data.datasets[0].data[3] = 2
+    padiChart.data.datasets[0].data[4] = 2
+    padiChart.data.datasets[0].data[5] = 1
+    padiChart.data.datasets[0].data[6] = 0
+
+    padiChart.data.datasets[1].data[0] = 0
+    padiChart.data.datasets[1].data[1] = 0
+    padiChart.data.datasets[1].data[2] = 0
+    padiChart.data.datasets[1].data[3] = 8
+    padiChart.data.datasets[1].data[4] = 1
+    padiChart.data.datasets[1].data[5] = 0
+    padiChart.data.datasets[1].data[6] = 0
+
+    padiChart.options.plugins.title.text = 'VR'
+    modePadi = 'vr'
+  }
+  padiChart.update()
+}
+
+function toggleExcChart() {
+  if (modeExc === 'vr') {
+    excChart.data.datasets[0].data[0] = 1
+    excChart.data.datasets[0].data[1] = 1
+    excChart.data.datasets[0].data[2] = 3
+    excChart.data.datasets[0].data[3] = 4
+    excChart.data.datasets[0].data[4] = 1
+    excChart.data.datasets[0].data[5] = 0
+    excChart.data.datasets[0].data[6] = 0
+    excChart.options.plugins.title.text = 'Non-VR'
+
+    modeExc = 'nonVR'
+  } else {
+    excChart.data.datasets[0].data[0] = 0
+    excChart.data.datasets[0].data[1] = 0
+    excChart.data.datasets[0].data[2] = 0
+    excChart.data.datasets[0].data[3] = 3
+    excChart.data.datasets[0].data[4] = 5
+    excChart.data.datasets[0].data[5] = 1
+    excChart.data.datasets[0].data[6] = 1
+    
+    excChart.options.plugins.title.text = 'VR'
+    modeExc = 'vr'
+  }
+  excChart.update()
+}
+
 document.addEventListener('keypress', e => {
   if (e.keyCode === 99 && currSlide === 'sa') {
     toggleSaChart()
   }
   if (e.keyCode === 99 && currSlide === 'symp') {
     toggleSympChart()
+  }
+  if (e.keyCode === 99 && currSlide === 'padi') {
+    togglePadiChart()
+  }
+  if (e.keyCode === 99 && currSlide === 'exc') {
+    toggleExcChart()
   }
 })
 
